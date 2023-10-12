@@ -26,7 +26,7 @@ except:
 
 # adding this to test out caching
 st.cache_data(ttl=86400)
-
+""""
 def plot_financials(df_2, x, y, x_cutoff, title):
     """"
     helper to plot the altair financial charts
@@ -36,7 +36,20 @@ def plot_financials(df_2, x, y, x_cutoff, title):
         y=y
         ).properties(title=title)
     ) 
- 
+"""
+
+
+def plot_financials(df_2, x, y, x_cutoff, title):
+    """
+    Helper to plot financial bar charts using Altair.
+    """
+    chart = alt.Chart(df_2.head(x_cutoff)).mark_bar().encode(
+        x=x,
+        y=y
+    ).properties(title=title)
+
+    return chart
+
     #df_2 = pd.DataFrame(df_2)
     #st.write("Function-",df_2)
     #df_subset = df_2.head(x_cutoff)
