@@ -86,8 +86,8 @@ def authenticate_user():
 
 if authenticate_user():
     with st.sidebar:
-      image = Image.open("streamlit-buffett-main/assets/FinGPT.png")
-      image = st.image('streamlit-buffett-main/assets/FinGPT.png',width=280)
+      image = Image.open("assets/FinGPT.png")
+      image = st.image('assets/FinGPT.png',width=280)
       selected = option_menu( menu_title="Explore",
       menu_icon = "search",
       options=["Company Statements", 'Annual Reports'], 
