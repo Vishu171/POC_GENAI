@@ -29,7 +29,7 @@ st.cache_data(ttl=86400)
 
 
 
-def plot_financials(df_2, x, y, cutoff, title):
+def plot_financials(df_2, x, y, x_cutoff, title):
     """"
     helper to plot the altair financial charts
    
@@ -41,11 +41,17 @@ def plot_financials(df_2, x, y, cutoff, title):
   """ 
     df_2 = pd.DataFrame(df_2)
     #st.write("Function-",df_2)
-    df_subset = df_2.head(cutoff)
+    df_subset = df_2.head(x_cutoff)
+
+    plt.figure(figsize=(10, 6))
+    plt.bar(df_subset[x], df_subset[y])
+    plt.xlabel(x)
+    plt.ylabel(y)
+    plt.title(title)
   
     # Create a bar chart using st.bar_chart()
 
-    return st.bar_chart(df_subset.set_index(x)[y])
+    return st.bar_chart(df_subset.set_index[x][y])
 
     
 def fs_chain(str_input):
@@ -141,7 +147,8 @@ if authenticate_user():
                         #y = list(df_data.columns[1:])
                         title_name = df_data.columns[0]+'-'+df_data.columns[1]
                         with col2:
-                            plot_financials(df_data,df_data.columns[0],df_data.columns[1], cutoff,title_name)
+                            st.pyplot()
+                            #plot_financials(df_data,df_data.columns[0],df_data.columns[1], cutoff,title_name)
         
         if prompt := str_input:
             st.chat_message("user").markdown(prompt, unsafe_allow_html = True)
@@ -173,7 +180,8 @@ if authenticate_user():
                             #y = list(df_2.columns[1:])
                             title_name = df_2.columns[0]+'-'+df_2.columns[1]
                             with col2:
-                                plot_financials(df_2,df_2.columns[0],df_data.columns[1], cutoff,title_name)
+                                st.pyplot()
+                                #plot_financials(df_2,df_2.columns[0],df_data.columns[1], cutoff,title_name)
                              #st.write(df_2)
                       #st.session_state.messages.append({"role": "assistant", "content": tabulate(df_2, tablefmt="html",headers=headers,showindex=False)})
                         st.session_state.messages.append({"role": "assistant", "content": df_2.to_csv(sep=',', index=False)})
