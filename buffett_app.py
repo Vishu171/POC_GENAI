@@ -44,11 +44,7 @@ def plot_financials(df_2, x, y, x_cutoff, title):
     #st.write("Function-",df_2)
     df_subset = df_2.head(x_cutoff)
 
-    plt.figure(figsize=(10, 6))
-    plt.bar(df_subset[x], df_subset[y])
-    plt.xlabel(x)
-    plt.ylabel(y)
-    plt.title(title)
+
   
     # Create a bar chart using st.bar_chart()
 
