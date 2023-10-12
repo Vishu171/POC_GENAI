@@ -30,23 +30,22 @@ st.cache_data(ttl=86400)
 
 
 def plot_financials(df_2, x, y, x_cutoff, title):
-    """
-    Helper to plot financial bar charts using Altair.
-    """
-    chart = alt.Chart(df_2.head(x_cutoff)).mark_bar().encode(
+    """"
+    helper to plot the altair financial charts
+   
+    return st.altair_chart(alt.Chart(df_2.head(x_cutoff)).mark_bar().encode(
         x=x,
         y=y
-    ).properties(title=title)
-
-    return st.bar_chart(df_subset.set_index(x))
-
-    #df_2 = pd.DataFrame(df_2)
+        ).properties(title=title)
+    ) 
+  """ 
+    df_2 = pd.DataFrame(df_2)
     #st.write("Function-",df_2)
-    #df_subset = df_2.head(x_cutoff)
+    df_subset = df_2.head(x_cutoff)
   
     # Create a bar chart using st.bar_chart()
 
-    #return st.bar_chart(df_subset.set_index(x))
+    return st.bar_chart(df_subset.set_index(x))
 
     
 def fs_chain(str_input):
