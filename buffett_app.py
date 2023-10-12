@@ -4,7 +4,6 @@ import pandas as pd
 import streamlit as st
 import altair as alt
 import prompts
-import matplotlib.pyplot as plt
 from tabulate import tabulate
 from PIL import Image
 from streamlit_option_menu import option_menu
@@ -28,8 +27,6 @@ except:
 # adding this to test out caching
 st.cache_data(ttl=86400)
 
-
-
 def plot_financials(df_2, x, y, x_cutoff, title):
     """"
     helper to plot the altair financial charts
@@ -43,12 +40,10 @@ def plot_financials(df_2, x, y, x_cutoff, title):
     df_2 = pd.DataFrame(df_2)
     #st.write("Function-",df_2)
     df_subset = df_2.head(x_cutoff)
-
-
   
     # Create a bar chart using st.bar_chart()
 
-    return st.bar_chart(df_subset.set_index[x][y])
+    return st.bar_chart(df_subset.set_index(x))
 
     
 def fs_chain(str_input):
@@ -141,11 +136,10 @@ if authenticate_user():
                     #st.write(df_str)
                     
                     if len(df_data.index) >2 & len(df_data.columns) == 2:
-                        #y = list(df_data.columns[1:])
+                        y = list(df_data.columns[1:])
                         title_name = df_data.columns[0]+'-'+df_data.columns[1]
                         with col2:
-                            #st.pyplot()
-                            plot_financials(df_data,'year','income', cutoff,title_name)
+                            plot_financials(df_data,df_data.columns[0],y, cutoff,title_name)
         
         if prompt := str_input:
             st.chat_message("user").markdown(prompt, unsafe_allow_html = True)
@@ -174,11 +168,10 @@ if authenticate_user():
                          st.markdown(tabulate(df_2, tablefmt="html",headers=headers,showindex=False), unsafe_allow_html = True) 
                          
                         if len(df_2.index) >2 & len(df_2.columns) == 2:
-                            #y = list(df_2.columns[1:])
+                            y = list(df_2.columns[1:])
                             title_name = df_2.columns[0]+'-'+df_2.columns[1]
                             with col2:
-                                #st.pyplot()
-                                plot_financials(df_2,'year','income', cutoff,title_name)
+                                plot_financials(df_2,df_2.columns[0],y, cutoff,title_name)
                              #st.write(df_2)
                       #st.session_state.messages.append({"role": "assistant", "content": tabulate(df_2, tablefmt="html",headers=headers,showindex=False)})
                         st.session_state.messages.append({"role": "assistant", "content": df_2.to_csv(sep=',', index=False)})
