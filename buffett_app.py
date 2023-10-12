@@ -29,7 +29,7 @@ st.cache_data(ttl=86400)
 
 
 
-def plot_financials(df_2, x, y, x_cutoff, title):
+def plot_financials(df_2, x, y, cutoff, title):
     """"
     helper to plot the altair financial charts
    
@@ -41,7 +41,7 @@ def plot_financials(df_2, x, y, x_cutoff, title):
   """ 
     df_2 = pd.DataFrame(df_2)
     #st.write("Function-",df_2)
-    df_subset = df_2.head(x_cutoff)
+    df_subset = df_2.head(cutoff)
   
     # Create a bar chart using st.bar_chart()
 
