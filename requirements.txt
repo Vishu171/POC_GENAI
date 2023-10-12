@@ -14,3 +14,4 @@ sqlalchemy
 faiss-cpu
 tabulate
 streamlit_option_menu
+matplotlib.pyplot
