@@ -148,7 +148,7 @@ if authenticate_user():
                         title_name = df_data.columns[0]+'-'+df_data.columns[1]
                         with col2:
                             #st.pyplot()
-                            plot_financials(df_2,'year','income', cutoff,title_name)
+                            plot_financials(df_data,'year','income', cutoff,title_name)
         
         if prompt := str_input:
             st.chat_message("user").markdown(prompt, unsafe_allow_html = True)
