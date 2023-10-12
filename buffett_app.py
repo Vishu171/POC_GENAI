@@ -4,6 +4,7 @@ import pandas as pd
 import streamlit as st
 import altair as alt
 import prompts
+import matplotlib.pyplot as plt
 from tabulate import tabulate
 from PIL import Image
 from streamlit_option_menu import option_menu
