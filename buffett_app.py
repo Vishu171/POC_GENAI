@@ -148,7 +148,7 @@ if authenticate_user():
                         title_name = df_data.columns[0]+'-'+df_data.columns[1]
                         with col2:
                             #st.pyplot()
-                            plot_financials(df_data,df_data.columns[0],df_data.columns[1], cutoff,title_name)
+                            plot_financials(df_2,'year','income', cutoff,title_name)
         
         if prompt := str_input:
             st.chat_message("user").markdown(prompt, unsafe_allow_html = True)
@@ -181,7 +181,7 @@ if authenticate_user():
                             title_name = df_2.columns[0]+'-'+df_2.columns[1]
                             with col2:
                                 #st.pyplot()
-                                plot_financials(df_2,df_2.columns[0],df_data.columns[1], cutoff,title_name)
+                                plot_financials(df_2,'year','income', cutoff,title_name)
                              #st.write(df_2)
                       #st.session_state.messages.append({"role": "assistant", "content": tabulate(df_2, tablefmt="html",headers=headers,showindex=False)})
                         st.session_state.messages.append({"role": "assistant", "content": df_2.to_csv(sep=',', index=False)})
