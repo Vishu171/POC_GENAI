@@ -28,9 +28,9 @@ except:
 st.cache_data(ttl=86400)
 """"
 def plot_financials(df_2, x, y, x_cutoff, title):
-    """"
+    
     helper to plot the altair financial charts
-     """
+     
     return st.altair_chart(alt.Chart(df_2.head(x_cutoff)).mark_bar().encode(
         x=x,
         y=y
