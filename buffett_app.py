@@ -38,7 +38,7 @@ def plot_financials(df_2, x, y, x_cutoff, title):
         y=y
     ).properties(title=title)
 
-    return chart
+    return st.chart
 
     #df_2 = pd.DataFrame(df_2)
     #st.write("Function-",df_2)
