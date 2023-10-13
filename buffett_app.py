@@ -39,7 +39,7 @@ def plot_financials(df_2, x, y, x_cutoff, title):
     """
     df_subset = df_2.head(x_cutoff)
     # Create a bar chart using st.bar_chart()
-    return st.bar_chart(df_subset.set_index(x)[y])
+    return st.bar_chart(df_subset.set_index(x)[y],width=0, height=0, use_container_width=True))
 
 def kpi_recent(df_2, metric, periods=2, unit=1000000000):
     """
