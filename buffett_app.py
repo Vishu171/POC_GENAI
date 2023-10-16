@@ -187,7 +187,8 @@ if authenticate_user():
         
         """)
 
-        st.button(label = "Refresh", onclick = operation)
+        st.button(label = "Refresh", onclick = operation )
+        
         # Create a text input to edit the selected question
         if "messages_1" not in st.session_state.keys():
               st.session_state.messages_1 = []
