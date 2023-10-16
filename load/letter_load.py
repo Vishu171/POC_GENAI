@@ -5,9 +5,7 @@ from langchain.vectorstores import  Pinecone # for the vectorization part
 from langchain.text_splitter import TokenTextSplitter
 import pinecone
 
-#import magic
-#import nltk
-#nltk.download('punkt')
+
 
 # identify the various pdf files
 pdfs = [file for file in os.listdir('./letters/') if 'pdf' in file]
