@@ -33,7 +33,7 @@ pinecone.init(
     api_key=st.secrets['pinecone_key'], 
     environment=st.secrets['pinecone_env'] 
 )
-index_name = "buffett"
+index_name = "marvell"
 
 text_splitter = TokenTextSplitter(chunk_size=1000, chunk_overlap=0)
 texts = text_splitter.split_documents(flat_list)
