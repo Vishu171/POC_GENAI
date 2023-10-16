@@ -8,6 +8,7 @@ from tabulate import tabulate
 from PIL import Image
 from streamlit_option_menu import option_menu
 from io import StringIO
+from load.letter_load import operation
 
 st.set_page_config(layout="wide")
 
