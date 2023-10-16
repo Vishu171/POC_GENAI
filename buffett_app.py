@@ -40,13 +40,6 @@ def plot_financials(df_2, x, y, x_cutoff, title):
     df_subset = df_2.head(x_cutoff)
     # Create a bar chart using st.bar_chart()
     return st.bar_chart(data=df_subset.set_index(x),x=None, y=None, color=None,width=0, height=300, use_container_width=True)
-
-def kpi_recent(df_2, metric, periods=2, unit=1000000000):
-    """
-    filters a financial statement dataframe down to the most recent periods
-    df is the financial statement. Metric is the column to be used.
-    """
-    return df_2.sort_values('year',ascending=False).head(periods)[metric]/unit
     
 def fs_chain(str_input):
     """
