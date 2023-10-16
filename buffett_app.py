@@ -186,8 +186,8 @@ if authenticate_user():
         - What are the risks Marvell is facing?
         
         """)
-
-        st.button(label = "Refresh", onclick = operation )
+        
+        st.button(label = "Refresh", on_click = operation )
         
         # Create a text input to edit the selected question
         if "messages_1" not in st.session_state.keys():
