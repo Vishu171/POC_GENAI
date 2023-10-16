@@ -28,11 +28,11 @@ except:
 # adding this to test out caching
 st.cache_data(ttl=86400)
 
-def convert_to_numeric(value):
-    try:
-        return float(value)
-    except ValueError:
-        return value
+# def convert_to_numeric(value):
+#     try:
+#         return float(value)
+#     except ValueError:
+#         return value
         
 
 def plot_financials(df_2, x, y, x_cutoff, title):
@@ -47,7 +47,7 @@ def plot_financials(df_2, x, y, x_cutoff, title):
     """
     #df_subset = df_2.head(x_cutoff)
     df = pd.DataFrame(df_2)
-    df = df.applymap(convert_to_numeric)
+    #df = df.applymap(convert_to_numeric)
     # Create a bar chart using st.bar_chart()
     return st.bar_chart(data=df,x=df.columns[0], y=df.columns[1:], color=None,width=0, height=300, use_container_width=True)
     
