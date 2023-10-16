@@ -41,6 +41,7 @@ def get_pdf_stream(file_path):
     return pdf_stream
 
 def operation():
+    
     #Initialize Pinecone
     pinecone.init(
         api_key=st.secrets['pinecone_key'],
@@ -50,7 +51,8 @@ def operation():
     indexes = pinecone.list_indexes()  # checks if provided index exists
     if index_name in indexes:
         pinecone.delete_index(index_name)
-        print("Deleted Index")
+        #print("Deleted Index")
+        st.write("Delete Index")
         pinecone.create_index(index_name, dimension=1536,
                               metric="cosine", pods=1, pod_type="p1.x1")
         
@@ -63,7 +65,8 @@ def operation():
     for pdf in pdfs:
         pdf_name = pdf['Name']
         pdf_file_path = os.path.join(sp_file_path, pdf_name).replace('\\','/')
-        print (pdf_file_path)
+        #print (pdf_file_path)
+        st.write(pdf_file_path)
         pdf_stream = get_pdf_stream(pdf_name)
     
         # Extract text from PDF using PyPDF2
