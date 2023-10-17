@@ -36,7 +36,7 @@ st.cache_data(ttl=86400)
 #         return value
         
 
-def plot_financials(cur_flt_val, x, y, x_cutoff, title):
+#def plot_financials(cur_flt_val, x, y, x_cutoff, title):
     """"
     helper to plot the altair financial charts
     
