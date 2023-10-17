@@ -36,7 +36,7 @@ st.cache_data(ttl=86400)
 #         return value
         
 
-def plot_financials(cur_flt_val, x, y, x_cutoff, title):
+def plot_financials(df_2, x, y, x_cutoff, title):
     """"
     helper to plot the altair financial charts
     
@@ -47,7 +47,7 @@ def plot_financials(cur_flt_val, x, y, x_cutoff, title):
     ) 
     """
    
-    df = pd.DataFrame(cur_flt_val)
+    df = pd.DataFrame(df_2)
     return st.bar_chart(data=df,x=df.columns[0], y=df.columns[1:], color=None,width=0, height=300, use_container_width=True) 
        
        
@@ -172,9 +172,8 @@ if authenticate_user():
                         if len(df_2.index) >2 & len(df_2.columns) == 2:
                             title_name = df_2.columns[0]+'-'+df_2.columns[1]
                             with col2:
-                                str_col_val = df_2.columns[1].replace(',','')
-                                cur_flt_val = float(str_col_val)
-                                plot_financials(df_2.columns[0],cur_flt_val, cutoff,title_name)
+                                grph_ser_val  = df_2.iloc[:,1].apply(lambda x : float(x.replace(',','')))
+                                plot_financials(df_2.columns[0],grph_ser_val, cutoff,title_name)
                       #st.session_state.messages.append({"role": "assistant", "content": tabulate(df_2, tablefmt="html",headers=headers,showindex=False)})
                         st.session_state.messages.append({"role": "assistant", "content": df_2.to_csv(sep=',', index=False)})
                     else:
