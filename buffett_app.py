@@ -48,11 +48,9 @@ def plot_financials(df_2, x, y, x_cutoff, title):
     """
     #df_subset = df_2.head(x_cutoff)
     df = pd.DataFrame(df_2)
-    for column in df.columns:
-        if column not in columns_to_keep:
-           df[column] = df[column].apply(float)
-
-     
+    # for column in df.columns:
+    #     if column not in columns_to_keep:
+    #        df[column] = df[column].apply(float)
     #df = df.applymap(convert_to_numeric)
     return st.bar_chart(data=df,x=df.columns[0], y=df.columns[1:], color=None,width=0, height=300, use_container_width=True) 
     # Create a bar chart using st.bar_chart()
@@ -184,8 +182,10 @@ if authenticate_user():
                          st.markdown(tabulate(df_2, tablefmt="html",headers=headers,showindex=False), unsafe_allow_html = True) 
                         if len(df_2.index) >2 & len(df_2.columns) == 2:
                             title_name = df_2.columns[0]+'-'+df_2.columns[1]
-                            with col2:                                  
-                              plot_financials(df_2,df_2.columns[0],df_2.columns[1], cutoff,title_name)
+                            with col2:
+                              str_col_val = df_2.replace(',','')
+                              cur_flt_val = float(str_col_val)
+                              plot_financials(cur_flt_valcur_flt_val.columns[0],cur_flt_val.columns[1], cutoff,title_name)
                       #st.session_state.messages.append({"role": "assistant", "content": tabulate(df_2, tablefmt="html",headers=headers,showindex=False)})
                         st.session_state.messages.append({"role": "assistant", "content": df_2.to_csv(sep=',', index=False)})
                     else:
