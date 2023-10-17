@@ -155,7 +155,10 @@ if authenticate_user():
                     if len(df_data.index) >2 & len(df_data.columns) == 2:
                         title_name = df_data.columns[0]+'-'+df_data.columns[1]
                         with col2:
-                            plot_financials(df_data,df_data.columns[0],df_data.columns[1], cutoff,title_name)
+                            str_col_val = df_data.replace(',','')
+                            cur_flt_val = float(str_col_val)
+                            st.write(cur_flt_val)
+                            plot_financials(cur_flt_val,cur_flt_val.columns[0],cur_flt_val.columns[1], cutoff,title_name)
                             #st.write(df_data)
         if prompt := str_input:
             st.chat_message("user").markdown(prompt, unsafe_allow_html = True)
