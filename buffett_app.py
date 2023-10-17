@@ -186,6 +186,7 @@ if authenticate_user():
                             with col2:
                               str_col_val = df_2.replace(',','')
                               cur_flt_val = float(str_col_val)
+                              st.write(cur_flt_val)
                               plot_financials(cur_flt_val.columns[0],cur_flt_val.columns[1], cutoff,title_name)
                       #st.session_state.messages.append({"role": "assistant", "content": tabulate(df_2, tablefmt="html",headers=headers,showindex=False)})
                         st.session_state.messages.append({"role": "assistant", "content": df_2.to_csv(sep=',', index=False)})
