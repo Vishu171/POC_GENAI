@@ -143,7 +143,7 @@ if authenticate_user():
                         title_name = df_data.columns[0]+'-'+df_data.columns[1]
                         with col2:
                             plot_financials(df_data,df_data.columns[0],df_data.columns[1], cutoff,title_name)
-        
+                            st.write(df_data)
         if prompt := str_input:
             st.chat_message("user").markdown(prompt, unsafe_allow_html = True)
             # Add user message to chat history
