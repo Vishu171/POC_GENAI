@@ -172,8 +172,12 @@ if authenticate_user():
                         if len(df_2.index) >2 & len(df_2.columns) == 2:
                             title_name = df_2.columns[0]+'-'+df_2.columns[1]
                             with col2:
-                                grph_ser_val  = df_2.iloc[:,1].apply(lambda x : float(x.replace(',','')))
-                                plot_financials(df_2.columns[0],grph_ser_val, cutoff,title_name)
+                                grph_ser_val_x  = df_2.iloc[:,0]
+                                grph_ser_val_y  = df_2.iloc[:,1].apply(lambda x : float(x.replace(',','')))
+                                frame = {df_2.columns[0] : grph_ser_val_x,
+                                         df_2.columns[1] : grph_ser_val_y}
+                                df_final = pd.DataFrame(frame)
+                                plot_financials(df_final, df_2.columns[0],df_2.columns[1], cutoff,title_name)
                       #st.session_state.messages.append({"role": "assistant", "content": tabulate(df_2, tablefmt="html",headers=headers,showindex=False)})
                         st.session_state.messages.append({"role": "assistant", "content": df_2.to_csv(sep=',', index=False)})
                     else:
