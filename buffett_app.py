@@ -35,9 +35,9 @@ st.cache_data(ttl=86400)
 #     except ValueError:
 #         return value
         
-
-#def plot_financials(cur_flt_val, x, y, x_cutoff, title):
-    """"
+""""
+def plot_financials(cur_flt_val, x, y, x_cutoff, title):
+    
     helper to plot the altair financial charts
     
     return st.altair_chart(alt.Chart(df_2.head(x_cutoff)).mark_bar().encode(
@@ -46,9 +46,9 @@ st.cache_data(ttl=86400)
         ).properties(title=title)
     ) 
     """
-    #df_subset = df_2.head(x_cutoff)
-    df = pd.DataFrame(cur_flt_val)
-    return st.bar_chart(data=df,x=df.columns[0], y=df.columns[1:], color=None,width=0, height=300, use_container_width=True) 
+    ##df_subset = df_2.head(x_cutoff)
+    #df = pd.DataFrame(cur_flt_val)
+    #return st.bar_chart(data=df,x=df.columns[0], y=df.columns[1:], color=None,width=0, height=300, use_container_width=True) 
     # for column in df.columns:
     #     if column not in columns_to_keep:
     #        df[column] = df[column].apply(float)
