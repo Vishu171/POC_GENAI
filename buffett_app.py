@@ -51,6 +51,8 @@ def plot_financials(df_2, x, y, x_cutoff, title):
     for column in df.columns:
         if column not in columns_to_keep:
            df[column] = pd.to_numeric(df[column], errors='coerce')
+
+    st.write(df)
      
     #df = df.applymap(convert_to_numeric)
     # Create a bar chart using st.bar_chart()
