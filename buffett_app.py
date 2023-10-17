@@ -54,15 +54,15 @@ def plot_financials(df_2, x, y, x_cutoff, title):
 
      
     df = df.applymap(convert_to_numeric)
-    #return st.bar_chart(data=df,x=df.columns[0], y=df.columns[1:], color=None,width=0, height=300, use_container_width=True) 
+    return st.bar_chart(data=df,x=df.columns[0], y=df.columns[1:], color=None,width=0, height=300, use_container_width=True) 
     # Create a bar chart using st.bar_chart()
 
-    if len(df.index) == 2:
-        return st.bar_chart(data=df,x=df.columns[0], y=df.columns[1], color=None,width=0, height=300, use_container_width=True)
-    elif len(df.index) > 2:
-        return st.bar_chart(data=df,x=df.columns[0], y=df.columns[1:], color=None,width=0, height=300, use_container_width=True)
-    else:
-        return st.bar_chart(data = df)
+    # if len(df.index) == 2:
+    #     return st.bar_chart(data=df,x=df.columns[0], y=df.columns[1], color=None,width=0, height=300, use_container_width=True)
+    # elif len(df.index) > 2:
+    #     return st.bar_chart(data=df,x=df.columns[0], y=df.columns[1:], color=None,width=0, height=300, use_container_width=True)
+    # else:
+    #     return st.bar_chart(data = df)
     
        
 def fs_chain(str_input):
