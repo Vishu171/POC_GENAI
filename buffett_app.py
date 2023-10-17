@@ -158,7 +158,7 @@ if authenticate_user():
                             str_col_val = df_data.replace(',','')
                             cur_flt_val = float(str_col_val)
                             st.write(cur_flt_val)
-                            plot_financials(cur_flt_val,cur_flt_val.columns[0],cur_flt_val.columns[1], cutoff,title_name)
+                            #plot_financials(cur_flt_val,cur_flt_val.columns[0],cur_flt_val.columns[1], cutoff,title_name)
                             #st.write(df_data)
         if prompt := str_input:
             st.chat_message("user").markdown(prompt, unsafe_allow_html = True)
@@ -181,16 +181,17 @@ if authenticate_user():
                             #st.bar_chart(df_2) 
                         col1, col2 = st.columns(2)
                         df_2.columns = df_2.columns.str.replace('_', ' ')
-                        str_col_val = df_2.replace(',','')
-                        cur_flt_val = float(str_col_val)
-                        st.write(cur_flt_val)
+
                         headers = df_2.columns
                         with col1:
                          st.markdown(tabulate(df_2, tablefmt="html",headers=headers,showindex=False), unsafe_allow_html = True) 
                         if len(df_2.index) >2 & len(df_2.columns) == 2:
                             title_name = df_2.columns[0]+'-'+df_2.columns[1]
                             with col2:
-                              plot_financials(cur_flt_val.columns[0],cur_flt_val.columns[1], cutoff,title_name)
+                                str_col_val = df_2.replace(',','')
+                                cur_flt_val = float(str_col_val)
+                                st.write(cur_flt_val)
+                              #plot_financials(cur_flt_val.columns[0],cur_flt_val.columns[1], cutoff,title_name)
                       #st.session_state.messages.append({"role": "assistant", "content": tabulate(df_2, tablefmt="html",headers=headers,showindex=False)})
                         st.session_state.messages.append({"role": "assistant", "content": df_2.to_csv(sep=',', index=False)})
                     else:
