@@ -47,6 +47,8 @@ def plot_financials(df_2, x, y, x_cutoff, title):
     """
     #df_subset = df_2.head(x_cutoff)
     df = pd.DataFrame(df_2)
+    #st.write(df.dtypes)
+    df["df.columns[0]"] = df["df.columns[1:]"].astype(int)
     st.write(df.dtypes)
     #df = df.applymap(convert_to_numeric)
     # Create a bar chart using st.bar_chart()
