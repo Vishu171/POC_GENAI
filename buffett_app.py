@@ -52,7 +52,7 @@ def plot_financials(df_2, x, y, x_cutoff, title):
         if column not in columns_to_keep:
            df[column] = df[column].apply(float)
 
-    return st.bar_chart(data=df,x=df.columns[0], y=df.columns[1], color=None,width=0, height=300, use_container_width=True) 
+    return st.bar_chart(data=df,x=df.columns[0], y=df.columns[1:], color=None,width=0, height=300, use_container_width=True) 
     #df = df.applymap(convert_to_numeric)
     # Create a bar chart using st.bar_chart()
     # if len(df.index) == 2:
