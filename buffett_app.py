@@ -53,6 +53,7 @@ def plot_financials(df_2, x, y, x_cutoff, title):
            df[column] = pd.to_numeric(df[column], errors='coerce')
 
     st.write(df)
+    st.write(df.dtypes)
      
     #df = df.applymap(convert_to_numeric)
     # Create a bar chart using st.bar_chart()
