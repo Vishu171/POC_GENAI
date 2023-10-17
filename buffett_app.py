@@ -108,7 +108,7 @@ if authenticate_user():
     if selected =='Company Statements':
         str_input = st.chat_input("Enter your question:")
         st.markdown("""
-        I am  Finance Assistant of your company. I possess the ability to extract information from your company's financial statements like balance sheet, income statements, etc spanning across 2003 to 2022. Please ask me questions and I will try my level best to provide accurate responses.
+        I am  Finance Assistant of your company. I possess the ability to extract information from your company's financial statements like balance sheet, income statements, etc spanning across 2019 to 2022. Please ask me questions and I will try my level best to provide accurate responses.
           
       
           **Some Sample Questions:**
@@ -187,7 +187,7 @@ if authenticate_user():
         query = st.chat_input("Enter your question:")
         st.markdown("""
 
-        I am capable of reviewing the annual reports from 2018 to 2022. Please ask me questions and I will try my level best to provide accurate responses
+        I am capable of reviewing the annual reports from 2019 to 2022. Please ask me questions and I will try my level best to provide accurate responses
               
         **Some Sample Questions:**
       
