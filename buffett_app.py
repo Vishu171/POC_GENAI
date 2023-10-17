@@ -144,8 +144,8 @@ if authenticate_user():
                         with col2:
                                 grph_ser_val_x1  = df_data.iloc[:,0]
                                 grph_ser_val_y1  = df_data.iloc[:,1].apply(lambda x : float(x.replace(',','')))
-                                frame = {df_data.columns[0] : grph_ser_val_x,
-                                         df_data.columns[1] : grph_ser_val_y}
+                                frame = {df_data.columns[0] : grph_ser_val_x1,
+                                         df_data.columns[1] : grph_ser_val_y1}
                                 df_final1 = pd.DataFrame(frame)
                                 plot_financials(df_final1,df_data.columns[0],df_data.columns[1], cutoff,title_name)
                            
