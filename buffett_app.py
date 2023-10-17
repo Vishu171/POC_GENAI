@@ -50,7 +50,7 @@ def plot_financials(df_2, x, y, x_cutoff, title):
     df = pd.DataFrame(df_2)
     for column in df.columns:
         if column not in columns_to_keep:
-           df[column] = pd.to_numeric(df[column], errors='coerce')
+           df[column] = df[column].apply(float)
 
     st.write(df)
     st.write(df.dtypes)
