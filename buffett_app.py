@@ -77,7 +77,7 @@ if authenticate_user():
         
         """)
 
-        st.button(label = "Press the button for 2022 data", on_click = operation )
+        st.button(label = "Press the button to get the 2022 data", on_click = operation )
         
         # Create a text input to edit the selected question
         if "messages_1" not in st.session_state.keys():
