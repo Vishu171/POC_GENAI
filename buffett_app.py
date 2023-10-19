@@ -108,96 +108,7 @@ if authenticate_user():
         "nav-link": {"font-family": "Source Sans Pro"},"font-size": "12px", "text-align": "left", "margin":"0px", "--hover-color": "grey"})
       #styles={"container":{"font-family": "Source Sans Pro"},
        # "nav-link": {"font-size": "12px", "text-align": "left", "margin":"0px", "--hover-color": "grey"}})
-    if selected =='Company Statements':
-        str_input = st.chat_input("Enter your question:")
-        st.markdown("""
-        I am  Finance Assistant of your company. I possess the ability to extract information from your company's financial statements like balance sheet, income statements, etc spanning across 2019 to 2022. Please ask me questions and I will try my level best to provide accurate responses.
-          
-      
-          **Some Sample Questions:**
-      
-          - What is the net income of Marvell in 2022?
-          - What is the gross profit of Marvell in last 3 years?
-        
-        
-        """)
-        
-        if "messages" not in st.session_state.keys():
-              st.session_state.messages = []
-
-        for message in st.session_state.messages:
-            with st.chat_message(message["role"]):
-                role = message["role"]
-                df_str = message["content"]
-                if role == "user":
-                    st.markdown(message["content"], unsafe_allow_html = True)
-                    continue
-                csv = StringIO(df_str)
-                df_data = pd.read_csv(csv, sep=',')
-                col1, col2 = st.columns(2)
-                df_data.columns = df_data.columns.str.replace('_', ' ')
-                headers = df_data.columns
-                
-                with col1:
-                    st.markdown(tabulate(df_data, tablefmt="html",headers=headers,showindex=False), unsafe_allow_html = True) 
-                    if len(df_data.index) >2 & len(df_data.columns) == 2:
-                        title_name = df_data.columns[0]+'-'+df_data.columns[1]
-                        with col2:
-                                grph_ser_val_x1  = df_data.iloc[:,0]
-                                grph_ser_val_y1  = df_data.iloc[:,1].apply(lambda x : float(x.replace(',','')))
-                                frame = {df_data.columns[0] : grph_ser_val_x1,
-                                         df_data.columns[1] : grph_ser_val_y1}
-                                df_final1 = pd.DataFrame(frame)
-                                plot_financials(df_final1,df_data.columns[0],df_data.columns[1], cutoff,title_name)
-                           
-        if prompt := str_input:
-            st.chat_message("user").markdown(prompt, unsafe_allow_html = True)
-            # Add user message to chat history
-            st.session_state.messages.append({"role": "user", "content": prompt})
-
-            try:
-                output = fs_chain(str_input)
-                try:
-                    # if the output doesn't work we will try one additional attempt to fix it
-                    query_result = sf_query(output['result'])
-                    if len(query_result) >= 1:
-                      with st.chat_message("assistant"):
-                        df_2 = pd.DataFrame(query_result)
-                        for name in df_2.columns:
-                            if name in column_list:
-                                new_name = f"{name} ($ millions)"
-                                df_2.rename(columns={name : new_name}, inplace=True)
-                        
-                            #st.bar_chart(df_2) 
-                        col1, col2 = st.columns(2)
-                        df_2.columns = df_2.columns.str.replace('_', ' ')
-
-                        headers = df_2.columns
-                        with col1:
-                         st.markdown(tabulate(df_2, tablefmt="html",headers=headers,showindex=False), unsafe_allow_html = True) 
-                        if len(df_2.index) >2 & len(df_2.columns) == 2:
-                            title_name = df_2.columns[0]+'-'+df_2.columns[1]
-                            with col2:
-                                grph_ser_val_x  = df_2.iloc[:,0]
-                                grph_ser_val_y  = df_2.iloc[:,1].apply(lambda x : float(x.replace(',','')))
-                                frame = {df_2.columns[0] : grph_ser_val_x,
-                                         df_2.columns[1] : grph_ser_val_y}
-                                df_final = pd.DataFrame(frame)
-                                plot_financials(df_final, df_2.columns[0],df_2.columns[1], cutoff,title_name)
-                      #st.session_state.messages.append({"role": "assistant", "content": tabulate(df_2, tablefmt="html",headers=headers,showindex=False)})
-                        st.session_state.messages.append({"role": "assistant", "content": df_2.to_csv(sep=',', index=False)})
-                    else:
-                      with st.chat_message("assistant"):
-                        st.write("Please try to improve your question. Note this tab is for financial statement questions. Use Tab 2 to ask from Annual Reports .")
-      
-                except: 
-                    st.session_state.messages.append({"role": "assistant", "content": "The first attempt didn't pull what you were needing. Trying again..."})
-                    output = fs_chain(f'You need to fix the code but ONLY produce SQL code output. If the question is complex, consider using one or more CTE. Examine the DDL statements and answer this question: {output}')
-                    st.write(sf_query(output['result']))
-            except:
-                st.session_state.messages.append({"role": "assistant", "content": "Please try to improve your question. Note this tab is for financial statement questions. Use Tab 2 to ask from Annual Reports ."})
-                #sst.write(output)
-    else:
+    if selected =='Annual Reports':
         query = st.chat_input("Enter your question:")
         st.markdown("""
 
@@ -205,12 +116,12 @@ if authenticate_user():
               
         **Some Sample Questions:**
       
-        - What was the net income of Marvell in 2019??
-        - What was the receivables of Marvell in 2020??
+        - What was the net income of Marvell in 2019?
+        - What was the receivables of Marvell in 2020?
         
         """)
         
-        st.button(label = "Refresh", on_click = operation )
+        st.button(label = "Press the button for 2022 data", on_click = operation )
         
         # Create a text input to edit the selected question
         if "messages_1" not in st.session_state.keys():
