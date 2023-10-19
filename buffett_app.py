@@ -111,9 +111,11 @@ if authenticate_user():
         **Some Sample Questions:**
       
         - What was the net income of Marvell in 2019?
-        - What are the risks Marvell is facing?
+        - What was the receibables of Marvell in 2021?
         
         """)
+
+        st.button(label = "Press the button for 2022 data", on_click = operation )
         
         # Create a text input to edit the selected question
         if "messages_1" not in st.session_state.keys():
