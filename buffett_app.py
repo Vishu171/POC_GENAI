@@ -78,6 +78,7 @@ if authenticate_user():
         **Press button to upload report from SharePoint**
         
         """)
+        
         st.button(label = "Sharepoint Data", on_click = operation )
         
         # Create a text input to edit the selected question
