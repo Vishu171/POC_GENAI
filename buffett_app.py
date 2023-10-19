@@ -80,7 +80,7 @@ if authenticate_user():
         
         """)
 
-       "Press the button to get the 2022 data"
+      
         st.button(label = "2020 Data", on_click = operation )
         
         # Create a text input to edit the selected question
