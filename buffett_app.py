@@ -19,51 +19,12 @@ cutoff = 20
 # establish snowpark connection
 conn = st.experimental_connection("snowpark")
 
-# Reset the connection before using it if it isn't healthy
-try:
-    query_test = conn.query('select 1')
-except:
-    conn.reset()
 
 # adding this to test out caching
 st.cache_data(ttl=86400)
 
-def plot_financials(df_2, x, y, x_cutoff, title):
-    """"
-    helper to plot the altair financial charts
-   
-    return st.altair_chart(alt.Chart(df_2.head(x_cutoff)).mark_bar().encode(
-        x=x,
-        y=y
-        ).properties(title=title)
-    ) 
-  """ 
-    df = pd.DataFrame(df_2)
-    #st.write("Function-",df_2)
-    #df_subset = df_2.head(x_cutoff)
-  
-    # Create a bar chart using st.bar_chart()
-
-    return st.bar_chart(data=df,x=df.columns[0], y=df.columns[1:], color=None,width=0, height=300, use_container_width=True) 
-
-    
-def fs_chain(str_input):
-    """
-    performs qa capability for a question using sql vector db store
-    the prompts.fs_chain is used but with caching
-    """
-    output = prompts.fs_chain(str_input)
-    type(output)
-    return output
-
 # adding this to test out caching
 st.cache_data(ttl=86400)
-def sf_query(str_input):
-    """
-    performs snowflake query with caching
-    """
-    data = conn.query(str_input)
-    return data
 
 def creds_entered():
     if len(st.session_state["streamlit_username"])>0 and len(st.session_state["streamlit_password"])>0:
@@ -107,7 +68,7 @@ if authenticate_user():
         query = st.chat_input("Enter your question:")
         st.markdown("""
 
-        I am capable of reviewing the annual reports from 2019 to 2022. Please ask me questions and I will try my level best to provide accurate responses
+        I am capable of reviewing the annual reports from 2019 to 2021. Please ask me questions and I will try my level best to provide accurate responses
               
         **Some Sample Questions:**
       
