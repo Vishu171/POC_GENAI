@@ -74,10 +74,12 @@ if authenticate_user():
       
         - What was the net income of Marvell in 2019?
         - What was the receivables of Marvell in 2021?
-        
+
+
+        "Press the button to get the 2022 data"
         """)
 
-        St.write("Press the button to get the 2022 data")
+       "Press the button to get the 2022 data"
         st.button(label = "2020 Data", on_click = operation )
         
         # Create a text input to edit the selected question
