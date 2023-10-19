@@ -95,8 +95,8 @@ if authenticate_user():
       image = st.image('assets/FinGPT.png',width=280)
       selected = option_menu( menu_title="Explore",
       menu_icon = "search",
-      options=["Company Statements", 'Annual Reports'], 
-      icons=['database', 'filetype-pdf'],  
+      options=[ 'Annual Reports'], 
+      icons=['filetype-pdf'],  
       default_index=0,
       styles={#"container":{"font-family": "Garamond"},
         "nav-link": {"font-family": "Source Sans Pro"},"font-size": "12px", "text-align": "left", "margin":"0px", "--hover-color": "grey"})
