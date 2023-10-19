@@ -101,7 +101,7 @@ if authenticate_user():
       image = st.image('assets/FinGPT.png',width=280)
       selected = option_menu( menu_title="Explore",
       menu_icon = "search",
-      options=[ 'Company Statements','Annual Reports'], 
+      options=['Annual Reports'], 
       icons=['filetype-pdf'],  
       default_index=0,
       styles={#"container":{"font-family": "Garamond"},
@@ -201,12 +201,12 @@ if authenticate_user():
         query = st.chat_input("Enter your question:")
         st.markdown("""
 
-        I am capable of reviewing the annual reports from 2019 to 2022. Please ask me questions and I will try my level best to provide accurate responses
+        I am capable of reviewing the annual reports from 2019 to 2021. Please ask me questions and I will try my level best to provide accurate responses
               
         **Some Sample Questions:**
       
-        - What are the operating expenses of the Marvell for last 2 years?
-        - What are the risks Marvell is facing?
+        - What was the net income of Marvell in 2019??
+        - What was the receivables of Marvell in 2020??
         
         """)
         
