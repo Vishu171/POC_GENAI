@@ -72,7 +72,7 @@ if authenticate_user():
         **Some Sample Questions:**
       
         - What was the net income of Marvell in 2019?
-        - What was the receivables of Marvell in 2021?
+        - What are the Total assets of Marvell in 2021?
 
 
         **Press button to upload report from SharePoint**
