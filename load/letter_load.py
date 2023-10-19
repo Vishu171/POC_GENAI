@@ -50,7 +50,7 @@ def operation():
     
     indexes = pinecone.list_indexes()  # checks if provided index exists
     if index_name in indexes:
-        #pinecone.delete_index(index_name)
+        pinecone.delete_index(index_name)
         #print("Deleted Index")
         ##st.write("Delete Index")
         pinecone.create_index(index_name, dimension=1536,
