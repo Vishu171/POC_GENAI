@@ -78,11 +78,6 @@ if authenticate_user():
         **Press button to upload report from SharePoint**
         
         """)
-        
-     col1, col2 = st.columns((1,1))
-     with col1:
-        st.write("Press button to upload report from SharePoint")
-     with col2:
         st.button(label = "Sharepoint Data", on_click = operation )
         
         # Create a text input to edit the selected question
