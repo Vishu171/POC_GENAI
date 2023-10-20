@@ -71,7 +71,7 @@ if authenticate_user():
               
         **Some Sample Questions:**
       
-        - What was the Net revenue of Marvell in 2019?
+        - What is the Monitor and validate operational quality?
         - What are the Total assets of Marvell in 2021?
 
 
