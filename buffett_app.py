@@ -53,8 +53,8 @@ def authenticate_user():
 
 if authenticate_user():
     with st.sidebar:
-      image = Image.open("assets/KB logo.png")
-      image = st.image('assets/KB logo.png',width=250)
+      image = Image.open("assets/KBNew.png")
+      image = st.image('assets/KBNew.png',width=250)
       selected = option_menu( menu_title = None ,
       #menu_icon = "search",
       options=[ 'Reports'], 
