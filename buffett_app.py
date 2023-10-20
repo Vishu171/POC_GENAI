@@ -75,7 +75,7 @@ if authenticate_user():
         - What is the difference between Traditional process and DevOps process?
 
 
-        **Press the button to load data for MLOps from SharePoint**
+        **Click the button to load data for MLOps from SharePoint**
         
         """)
         
