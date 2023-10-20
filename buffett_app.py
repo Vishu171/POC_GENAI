@@ -57,14 +57,14 @@ if authenticate_user():
       image = st.image('assets/KB logo.png',width=250)
       selected = option_menu( menu_title = None ,
       #menu_icon = "search",
-      options=[ 'Annual Reports'], 
+      options=[ 'Reports'], 
       icons=['filetype-pdf'],  
       default_index=0,
       styles={#"container":{"font-family": "Garamond"},
         "nav-link": {"font-family": "Source Sans Pro"},"font-size": "12px", "text-align": "left", "margin":"0px", "--hover-color": "grey"})
       #styles={"container":{"font-family": "Garamond"},
         #"nav-link": {"font-size": "20px", "text-align": "left", "margin":"0px", "--hover-color": "grey"}})
-    if selected =='Annual Reports':
+    if selected =='Reports':
         query = st.chat_input("Enter your question:")
         st.markdown("""
         I am capable of reviewing the reports . Please ask me questions and I will try my level best to provide accurate responses
