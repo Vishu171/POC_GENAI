@@ -64,7 +64,7 @@ if authenticate_user():
         "nav-link": {"font-family": "Source Sans Pro"},"font-size": "12px", "text-align": "left", "margin":"0px", "--hover-color": "grey"})
       #styles={"container":{"font-family": "Garamond"},
         #"nav-link": {"font-size": "20px", "text-align": "left", "margin":"0px", "--hover-color": "grey"}})
-    if selected =='Reports':
+    #if selected =='Reports':
         query = st.chat_input("Enter your question:")
         st.markdown("""
         I am capable of reviewing the reports . Please ask me questions, and I will try my level best to provide accurate responses.
