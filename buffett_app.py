@@ -55,8 +55,8 @@ if authenticate_user():
     with st.sidebar:
       image = Image.open("assets/KB logo.png")
       image = st.image('assets/KB logo.png',width=250)
-      selected = option_menu( menu_title="Explore",
-      menu_icon = "search",
+      selected = option_menu( menu_title = None ,
+      #menu_icon = "search",
       options=[ 'Annual Reports'], 
       icons=['filetype-pdf'],  
       default_index=0,
