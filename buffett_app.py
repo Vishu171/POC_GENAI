@@ -79,7 +79,7 @@ if authenticate_user():
         
         """)
         
-        st.button(label = "Refresh for MLOPs Data", on_click = operation )
+        st.button(label = "Refresh for MLOps Data", on_click = operation )
         
         # Create a text input to edit the selected question
         if "messages_1" not in st.session_state.keys():
