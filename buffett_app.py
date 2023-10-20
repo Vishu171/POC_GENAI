@@ -67,7 +67,7 @@ if authenticate_user():
     if selected =='Reports':
         query = st.chat_input("Enter your question:")
         st.markdown("""
-        I am capable of reviewing the reports . Please ask me questions, and I will try my level best to provide accurate responses
+        I am capable of reviewing the reports . Please ask me questions, and I will try my level best to provide accurate responses.
               
         **Some Sample Questions:**
       
