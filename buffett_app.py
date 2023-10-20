@@ -75,11 +75,11 @@ if authenticate_user():
         - What is the difference between Traditional process and DevOps process?
 
 
-        **Press button to load data for Year 2022 from SharePoint**
+        **Press button to load data for MLOps from SharePoint**
         
         """)
         
-        st.button(label = "Load Data for 2022", on_click = operation )
+        st.button(label = "Refresh for MLOPs Data", on_click = operation )
         
         # Create a text input to edit the selected question
         if "messages_1" not in st.session_state.keys():
