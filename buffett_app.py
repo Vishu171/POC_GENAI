@@ -75,11 +75,11 @@ if authenticate_user():
         - What are the Total assets of Marvell in 2021?
 
 
-        **Press button to upload report from SharePoint**
+        **Press button to load data 2022 from SharePoint**
         
         """)
         
-        st.button(label = "Sharepoint Data", on_click = operation )
+        st.button(label = "Load Data for 2022", on_click = operation )
         
         # Create a text input to edit the selected question
         if "messages_1" not in st.session_state.keys():
