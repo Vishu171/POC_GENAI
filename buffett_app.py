@@ -55,49 +55,40 @@ if authenticate_user():
     with st.sidebar:
       image = Image.open("assets/KBNew.png")
       image = st.image('assets/KBNew.png',width=250)
-      selected = option_menu( menu_title = None ,
-      #menu_icon = "search",
-      options=[ 'Reports'], 
-      icons=['filetype-pdf'],  
-      default_index=0,
-      styles={#"container":{"font-family": "Garamond"},
-        "nav-link": {"font-family": "Source Sans Pro"},"font-size": "12px", "text-align": "left", "margin":"0px", "--hover-color": "grey"})
-      #styles={"container":{"font-family": "Garamond"},
-        #"nav-link": {"font-size": "20px", "text-align": "left", "margin":"0px", "--hover-color": "grey"}})
-    #if selected =='Reports':
-        query = st.chat_input("Enter your question:")
-        st.markdown("""
-        I am capable of reviewing the reports . Please ask me questions, and I will try my level best to provide accurate responses.
-              
-        **Some Sample Questions:**
       
-        - What is the Monitor and validate operational quality?
-        - What is the difference between Traditional process and DevOps process?
+    query = st.chat_input("Enter your question:")
+    st.markdown("""
+    I am capable of reviewing the reports . Please ask me questions, and I will try my level best to provide accurate responses.
+          
+    **Some Sample Questions:**
+  
+    - What is the Monitor and validate operational quality?
+    - What is the difference between Traditional process and DevOps process?
 
 
-        **Click the button to load data for MLOps from SharePoint**
-        
-        """)
-        
-        st.button(label = "Refresh for MLOps Data", on_click = operation )
-        
-        # Create a text input to edit the selected question
-        if "messages_1" not in st.session_state.keys():
-              st.session_state.messages_1 = []
+    **Click the button to load data for MLOps from SharePoint**
+    
+    """)
+    
+    st.button(label = "Refresh for MLOps Data", on_click = operation )
+    
+    # Create a text input to edit the selected question
+    if "messages_1" not in st.session_state.keys():
+          st.session_state.messages_1 = []
 
-        for message in st.session_state.messages_1:
-            with st.chat_message(message["role"]):
-                st.markdown(message["content"], unsafe_allow_html = True)
-        
-        if prompt1 := query:
-            st.chat_message("user").markdown(prompt1, unsafe_allow_html = True)
-              # Add user message to chat history
-            st.session_state.messages_1.append({"role": "user", "content": prompt1})
-            try:
-                with st.chat_message("assistant"):
-                  result = prompts.letter_chain(query)
-                  st.write(result['result'])
-                  st.session_state.messages_1.append({"role": "assistant", "content":result['result'] } )
+    for message in st.session_state.messages_1:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"], unsafe_allow_html = True)
+    
+    if prompt1 := query:
+        st.chat_message("user").markdown(prompt1, unsafe_allow_html = True)
+          # Add user message to chat history
+        st.session_state.messages_1.append({"role": "user", "content": prompt1})
+        try:
+            with st.chat_message("assistant"):
+              result = prompts.letter_chain(query)
+              st.write(result['result'])
+              st.session_state.messages_1.append({"role": "assistant", "content":result['result'] } )
 
-            except:
-                st.write("Please try to improve your question")
+        except:
+            st.write("Please try to improve your question")
