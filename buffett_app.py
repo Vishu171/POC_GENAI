@@ -57,7 +57,7 @@ if authenticate_user():
       image = st.image('assets/KBNew.png',width=250)
       selected = option_menu( menu_title = None ,
       #menu_icon = "search",
-      #options=[ 'Reports'], 
+      options=[ 'Reports'], 
       icons=['filetype-pdf'],  
       default_index=0,
       styles={#"container":{"font-family": "Garamond"},
