@@ -53,8 +53,8 @@ def authenticate_user():
 
 if authenticate_user():
     with st.sidebar:
-      image = Image.open("assets/FinGPT.png")
-      image = st.image('assets/FinGPT.png',width=280)
+      image = Image.open("assets/KB logo.png")
+      image = st.image('assets/KB logo.png',width=280)
       selected = option_menu( menu_title="Explore",
       menu_icon = "search",
       options=[ 'Annual Reports'], 
