@@ -72,7 +72,7 @@ if authenticate_user():
         **Some Sample Questions:**
       
         - What is the Monitor and validate operational quality?
-        - What are the Total assets of Marvell in 2021?
+        - What is the difference between Traditional process and DevOps process?
 
 
         **Press button to load data for Year 2022 from SharePoint**
