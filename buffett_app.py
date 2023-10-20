@@ -58,7 +58,7 @@ if authenticate_user():
       
     query = st.chat_input("Enter your question:")
     st.markdown("""
-    I am capable of reviewing the reports . Please ask me questions, and I will try my level best to provide accurate responses.
+    Semantic search virtual assistant : search content in KB repository of documents. Currently KB has training material on DevOps
           
     **Some Sample Questions:**
   
@@ -66,11 +66,11 @@ if authenticate_user():
     - What is the difference between Traditional process and DevOps process?
 
 
-    **Click the button to load data for MLOps from SharePoint**
+    **Click button below to embed recently received additional KB material received on MLOps**
     
     """)
     
-    st.button(label = "Refresh for MLOps Data", on_click = operation )
+    st.button(label = "Embed MLOps document", on_click = operation )
     
     # Create a text input to edit the selected question
     if "messages_1" not in st.session_state.keys():
