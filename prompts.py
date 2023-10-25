@@ -50,9 +50,9 @@ SQL: ```sql ``` \n
 
 FS_PROMPT = PromptTemplate(input_variables=["question", "context"], template=FS_TEMPLATE, )
 
-LETTER_TEMPLATE = """ You are tasked with retrieving questions regarding K-10 annual report by Marvell with ticker name MRVL. Marvell and MRVL must be used interchangeably by the user in question.
-
-Provide an answer based on this retreival, and if you can't find anything relevant, just say "I'm sorry, I couldn't find that."
+LETTER_TEMPLATE = """ You are tasked with retrieving questions regarding generic knowledge documents.
+ 
+Provide an answer based on contenxtual content, and if you can't find anything relevant, just say "I'm sorry, I couldn't find that."
 
 {context}
 
