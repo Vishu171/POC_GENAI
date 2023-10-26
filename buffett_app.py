@@ -62,7 +62,7 @@ if authenticate_user():
     st.markdown("""
     **Empower non-technical users to derive insights from the knowledge base documents and collaterals stored in SharePoint and other knowledge repositories.**
           
-    Some Sample Questions:
+    Some Sample Queries:
   
     - What is the Monitor and validate operational quality?
     - What is the difference between Traditional process and DevOps process?
