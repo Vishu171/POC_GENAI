@@ -55,7 +55,9 @@ if authenticate_user():
     with st.sidebar:
       image = Image.open("assets/JadeLogo.png")
       image = st.image('assets/JadeLogo.png',width=280)
-      
+      image = Image.open("assets/KBSIDE.png")
+      image = st.image('assets/KBSIDE.png',width=280)
+        
     query = st.chat_input("Enter your question:")
     st.markdown("""
     Semantic search virtual assistant : search content in KB repository of documents. Currently KB has training material on DevOps
