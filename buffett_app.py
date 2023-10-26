@@ -53,8 +53,8 @@ def authenticate_user():
 
 if authenticate_user():
     with st.sidebar:
-      image = Image.open("assets/KBNew.png")
-      image = st.image('assets/KBNew.png',width=250)
+      image = Image.open("assets/JadeLogo.png")
+      image = st.image('assets/JadeLogo.png',width=250)
       
     query = st.chat_input("Enter your question:")
     st.markdown("""
