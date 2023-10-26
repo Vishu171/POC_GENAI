@@ -54,7 +54,7 @@ def authenticate_user():
 if authenticate_user():
     with st.sidebar:
       image = Image.open("assets/JadeLogo.png")
-      image = st.image('assets/JadeLogo.png',width=260)
+      image = st.image('assets/JadeLogo.png',width=260,height=150)
       image = Image.open("assets/KBSIDE.png")
       image = st.image('assets/KBSIDE.png',width=260)
         
