@@ -56,7 +56,7 @@ if authenticate_user():
       image = Image.open("assets/JadeLogo.png")
       image = st.image('assets/JadeLogo.png',width=260)
       image = Image.open("assets/KBSIDE.png")
-      image = st.image('assets/KBSIDE.png',width=260)
+      image = st.image('assets/KBSIDE.png',width=255)
         
     query = st.chat_input("Enter your question:")
     st.markdown("""
