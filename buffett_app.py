@@ -59,7 +59,9 @@ if authenticate_user():
       image = st.image('assets/KBSIDE.png',width=265)
    
     image = Image.open("assets/KB_Top.png")
-    image = st.image('assets/KB_Top.png',width=760)   
+    new_image = image.resize((700, 100))
+    st.image(new_image) 
+    
     query = st.chat_input("Enter your question:")
     st.markdown("""
     **Empower non-technical users to derive insights from the knowledge base documents and collaterals stored in SharePoint and other knowledge repositories.**
