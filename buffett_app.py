@@ -59,7 +59,7 @@ if authenticate_user():
       image = st.image('assets/KBSIDE.png',width=265)
    
     image = Image.open("assets/KB_Top.png")
-    new_image = image.resize((700, 100))
+    new_image = image.resize((760, 100))
     st.image(new_image) 
     
     query = st.chat_input("Enter your question:")
