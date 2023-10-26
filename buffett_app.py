@@ -60,7 +60,7 @@ if authenticate_user():
         
     query = st.chat_input("Enter your question:")
     st.markdown("""
-    Semantic search virtual assistant : search content in KB repository of documents. Currently KB has training material on DevOps
+    Empower non-technical users to derive insights from the knowledge base documents and collaterals stored in SharePoint and other knowledge repositories.
           
     **Some Sample Questions:**
   
