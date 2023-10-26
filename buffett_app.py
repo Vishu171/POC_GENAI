@@ -54,9 +54,9 @@ def authenticate_user():
 if authenticate_user():
     with st.sidebar:
       image = Image.open("assets/JadeLogo.png")
-      image = st.image('assets/JadeLogo.png',width=280)
+      image = st.image('assets/JadeLogo.png',width=270)
       image = Image.open("assets/KBSIDE.png")
-      image = st.image('assets/KBSIDE.png',width=280)
+      image = st.image('assets/KBSIDE.png',width=260)
         
     query = st.chat_input("Enter your question:")
     st.markdown("""
