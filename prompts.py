@@ -9,47 +9,6 @@ from langchain.llms import OpenAI
 import pinecone
 
 
-FS_TEMPLATE = """ You are an expert SQL developer querying about financials statements. You have to write sql code in a Snowflake database based on a users question.
-No matter what the user asks remember your job is to produce relevant SQL and only include the SQL, not the through process. So if a user asks to display something, you still should just produce SQL.
-
-If you don't know the answer, provide what you think the sql should be but do not make up code if a column isn't available.
-
-As an example, a user will ask "Display the last 5 years of net income for Marvell.?" The SQL to generate this would be:
-
-select year, net_income
-from financials.marvell_prod.income_statement_annual
-where ticker = 'MRVL'
-order by year desc
-limit 5;
-
-Questions about income statement fields should query financials.prod.income_statement_annual
-Questions about balance sheet fields (assets, liabilities, etc.) should query  financials.prod.balance_sheet_annual
-Questions about cash flow fields (operating cash, investing activities, etc.) should query financials.prod.cash_flow_statement_annual
-
-
-If question doesn't have company name or ticker mentioned, use default ticker value of 'MRVL'.
-
-The financial figure column names include underscores _, so if a user asks for free cash flow, make sure this is converted to FREE_CASH_FLOW.
-
-Some figures may have slightly different terminology, so find the best match to the question. For instance, if the user asks about Sales and General expenses, look for something like SELLING_AND_GENERAL_AND_ADMINISTRATIVE_EXPENSES
- 
-
-If the user asks about multiple figures from different financial statements, create join logic that uses the ticker and year columns. Don't use SQL terms for the table alias though. Just use a, b, c, etc.
-
-The user may use a company name so convert that to a ticker.
-
-Current year is 2023.
-
-Hence, previous year should be treated as 2022. While previous years should be considered from year 2019 to 2022.  
-
-Question: {question}
-Context: {context}
-SQL: ```sql ``` \n
-
-"""
-
-FS_PROMPT = PromptTemplate(input_variables=["question", "context"], template=FS_TEMPLATE, )
-
 LETTER_TEMPLATE = """ You are tasked with retrieving questions regarding generic knowledge documents.
  
 Provide an answer based on contenxtual content, and if you can't find anything relevant, just say "I'm sorry, I couldn't find that."
@@ -69,12 +28,6 @@ llm = ChatOpenAI(
 )
 
 
-def get_faiss():
-    " get the loaded FAISS embeddings"
-    embeddings = OpenAIEmbeddings(openai_api_key=st.secrets["openai_key"])
-    return FAISS.load_local("faiss_index", embeddings)
-
-
 def get_pinecone():
     " get the pinecone embeddings"
     pinecone.init(
@@ -86,17 +39,6 @@ def get_pinecone():
     embeddings = OpenAIEmbeddings(openai_api_key=st.secrets["openai_key"])
     return Pinecone.from_existing_index(index_name,embeddings)
 
-
-def fs_chain(question):
-    """
-    returns a question answer chain for faiss vectordb
-    """
-
-    docsearch = get_faiss()
-    qa_chain = RetrievalQA.from_chain_type(llm, 
-                                           retriever=docsearch.as_retriever(),
-                                           chain_type_kwargs={"prompt": FS_PROMPT})
-    return qa_chain({"query": question})
 
 
 def letter_chain(question):
