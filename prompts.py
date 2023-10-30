@@ -56,12 +56,3 @@ def letter_chain(question):
                                            #chain_type_kwargs={"prompt": LETTER_PROMPT}
                                           )
     return qa_chain({"query": question})
-
-
-def letter_qa(query, temperature=.1,model_name="gpt-3.5-turbo"):
-    """
-    this method was deprecated but seems to be more efficient from a token perspective
-    """
-    pdf_qa = ChatVectorDBChain.from_llm(OpenAI(temperature=temperature, model_name=model_name, openai_api_key=st.secrets["openai_key"]),
-                    pinecone_search(), return_source_documents=True)
-    return pdf_qa({"question": query, "chat_history": ""})
