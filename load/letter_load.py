@@ -52,7 +52,7 @@ def operation():
     if index_name in indexes:
         pinecone.delete_index(index_name)
         #print("Deleted Index")
-        st.write("Delete Index")
+        ##st.write("Delete Index")
         pinecone.create_index(index_name, dimension=1536,
                               metric="cosine", pods=1, pod_type="p1.x1")
         
@@ -66,7 +66,7 @@ def operation():
         pdf_name = pdf['Name']
         pdf_file_path = os.path.join(sp_file_path, pdf_name).replace('\\','/')
         #print (pdf_file_path)
-        st.write(pdf_file_path)
+        ##st.write(pdf_file_path)
         pdf_stream = get_pdf_stream(pdf_name)
     
         # Extract text from PDF using PyPDF2
