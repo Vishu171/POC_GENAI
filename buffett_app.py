@@ -48,7 +48,7 @@ if authenticate_user():
       image = Image.open("assets/KBsidelogo.png")
       image = st.image('assets/KBsidelogo.png',width=265)
    
-    image = Image.open("assets/KB_Top.png")
+    image = Image.open("assets/KB_Top1.png")
     new_image = image.resize((830, 100))
     st.image(new_image) 
     
