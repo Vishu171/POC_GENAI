@@ -54,7 +54,7 @@ if authenticate_user():
     
     query = st.chat_input("Enter your question:")
     st.markdown("""
-    ##### Empower non-technical users to derive insights from the knowledge base documents and collaterals stored in SharePoint and other knowledge repositories.
+    ##### Empower users to derive insights from the knowledge base documents and collaterals stored in SharePoint and other knowledge repositories.
           
     Some Sample Queries:
   
