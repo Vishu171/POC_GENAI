@@ -45,8 +45,8 @@ if authenticate_user():
     with st.sidebar:
       image = Image.open("assets/JadeLogo.png")
       image = st.image('assets/JadeLogo.png',width=250)
-      image = Image.open("assets/Newsidelogo1.png")
-      image = st.image('assets/Newsidelogo1.png',width=265)
+      image = Image.open("assets/Knowledgelogo.png")
+      image = st.image('assets/Knowledgelogo.png',width=265)
    
     image = Image.open("assets/KB_Top1.jpg")
     new_image = image.resize((830, 100))
