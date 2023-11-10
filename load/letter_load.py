@@ -18,7 +18,7 @@ sp_file_path = st.secrets["sp_file_path"]
 sp_username = st.secrets["sp_username"]
 sp_password = st.secrets["sp_password"]
 openai_key = st.secrets["openai_key"]
-index_name = "marvell"
+index_name = "knowledgebase"
 
 
 def connect_sharepoint():
