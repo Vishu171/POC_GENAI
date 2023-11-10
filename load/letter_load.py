@@ -52,7 +52,7 @@ def operation():
     #if index_name in indexes:
         #pinecone.delete_index(index_name)
         #print("Deleted Index")
-        st.write("Delete Index")
+        ##st.write("Delete Index")
         #pinecone.create_index(index_name, dimension=1536,
                               #metric="cosine", pods=1, pod_type="p1.x1")
         
