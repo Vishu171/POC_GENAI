@@ -82,8 +82,8 @@ if authenticate_user():
         st.session_state.messages_1.append({"role": "user", "content": prompt1})
         try:
             with st.chat_message("assistant"):
-                st.write(query)
                 result = prompts.letter_chain(query)
+                st.write(result)
                 st.write(result['result'])
                 st.session_state.messages_1.append({"role": "assistant", "content":result['result'] } )
         except Exception as error:
