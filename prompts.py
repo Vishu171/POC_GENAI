@@ -53,6 +53,6 @@ def letter_chain(question):
                                             retriever=retreiver,
                                            chain_type="stuff", #"stuff", "map_reduce","refine", "map_rerank"
                                            return_source_documents=True,
-                                           chain_type_kwargs={"prompt": LETTER_PROMPT}
+                                           # chain_type_kwargs={"prompt": LETTER_PROMPT}
                                           )
     return qa_chain({"query": question})
