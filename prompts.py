@@ -43,16 +43,19 @@ def get_pinecone():
 
 def letter_chain(question):
     """returns a question answer chain for pinecone vectordb"""
-    
+    st.markdown("1")
     docsearch = get_pinecone()
+    st.markdown("3")
     retreiver = docsearch.as_retriever(#
         #search_type="similarity", #"similarity", "mmr"
         search_kwargs={"k":3}
     )
+    st.markdown("4")
     qa_chain = RetrievalQA.from_chain_type(llm, 
                                             retriever=retreiver,
                                            chain_type="stuff", #"stuff", "map_reduce","refine", "map_rerank"
                                            return_source_documents=True,
                                            # chain_type_kwargs={"prompt": LETTER_PROMPT}
                                           )
+    st.markdown("5")
     return qa_chain({"query": question})
