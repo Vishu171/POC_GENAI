@@ -77,7 +77,9 @@ if authenticate_user():
             st.markdown(message["content"], unsafe_allow_html = True)
     
     if prompt1 := query:
+        st.markdown("1")
         st.chat_message("user").markdown(prompt1, unsafe_allow_html = True)
+        st.markdown("2")
           # Add user message to chat history
         st.session_state.messages_1.append({"role": "user", "content": prompt1})
         try:
