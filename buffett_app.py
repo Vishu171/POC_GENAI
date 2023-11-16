@@ -80,12 +80,9 @@ if authenticate_user():
         st.chat_message("user").markdown(prompt1, unsafe_allow_html = True)
           # Add user message to chat history
         st.session_state.messages_1.append({"role": "user", "content": prompt1})
-        st.markdown("1")
         try:
             with st.chat_message("assistant"):
-                st.markdown("2")
                 result = prompts.letter_chain(query)
-                st.markdown("3")
                 st.write(result['result'])
                 st.session_state.messages_1.append({"role": "assistant", "content":result['result'] } )
         except:
