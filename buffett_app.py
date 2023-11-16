@@ -81,6 +81,7 @@ if authenticate_user():
           # Add user message to chat history
         st.session_state.messages_1.append({"role": "user", "content": prompt1})
         try:
+            st.write("In Try")
             with st.chat_message("assistant"):
                 result = prompts.letter_chain(query)
                 st.write(result['result'])
