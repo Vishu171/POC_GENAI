@@ -83,8 +83,8 @@ if authenticate_user():
         try:
             with st.chat_message("assistant"):
                 result = prompts.letter_chain(query)
-                st.write(result)
                 st.write(result['result'])
                 st.session_state.messages_1.append({"role": "assistant", "content":result['result'] } )
         except Exception as error:
+            st.write(error)
             st.write("Please try to improve your question")
