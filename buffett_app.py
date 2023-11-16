@@ -77,11 +77,11 @@ if authenticate_user():
             st.markdown(message["content"], unsafe_allow_html = True)
     
     if prompt1 := query:
-        st.chat_message("assistant").markdown(prompt1, unsafe_allow_html = True)
+        st.chat_message("user").markdown(prompt1, unsafe_allow_html = True)
           # Add user message to chat history
         st.session_state.messages_1.append({"role": "user", "content": prompt1})
         try:
-            with st.chat_message("user"):
+            with st.chat_message("assistant"):
                 result = prompts.letter_chain(query)
                 st.write(result)
                 st.markdown("7")
