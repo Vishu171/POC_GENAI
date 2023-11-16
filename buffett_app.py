@@ -77,16 +77,16 @@ if authenticate_user():
             st.markdown(message["content"], unsafe_allow_html = True)
     
     if prompt1 := query:
-        st.markdown("1")
         st.chat_message("user").markdown(prompt1, unsafe_allow_html = True)
-        st.markdown("2")
           # Add user message to chat history
         st.session_state.messages_1.append({"role": "user", "content": prompt1})
+        st.markdown("1")
         try:
             with st.chat_message("assistant"):
-              result = prompts.letter_chain(query)
-              st.write(result['result'])
-              st.session_state.messages_1.append({"role": "assistant", "content":result['result'] } )
-
+                st.markdown("2")
+                result = prompts.letter_chain(query)
+                st.markdown("3")
+                st.write(result['result'])
+                st.session_state.messages_1.append({"role": "assistant", "content":result['result'] } )
         except:
             st.write("Please try to improve your question")
