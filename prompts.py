@@ -10,9 +10,7 @@ import pinecone
 
 
 LETTER_TEMPLATE = """ You are tasked with retrieving questions regarding generic knowledge documents.
- 
 Provide an answer based on contenxtual content, and if you can't find anything relevant, just say "I'm sorry, I couldn't find that."
-
 {context}
 
 Question: {question}
