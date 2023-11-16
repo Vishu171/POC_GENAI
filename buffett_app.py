@@ -88,4 +88,5 @@ if authenticate_user():
                 st.session_state.messages_1.append({"role": "assistant", "content":result['result'] } )
         except Exception as error:
             st.markdown(type(error).__name__)
+            st.markdown(traceback.print_exc())
             st.write("Please try to improve your question")
